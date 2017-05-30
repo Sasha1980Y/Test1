@@ -29,15 +29,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for i in 0..<usersClass.count {
             if (enterYourLogin.text == usersClass[i].login && enterYourPassword.text == usersClass[i].password ) {
                 print("Ok")
-                break
+                return
             } else {
                 
-                alertMessage(title: "Error", message: "Login or password is incorrect", button: "OK")
+                
                print("Not Ok")
             }
         }
         
         print(usersClass)
+        alertMessage(title: "Error", message: "Login or password is incorrect", button: "OK")
         
     }
 

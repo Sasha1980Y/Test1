@@ -110,15 +110,29 @@ class LoginScreen2: UIViewController {
         
         createYourLogin.addTarget(self, action: #selector(LoginScreen2.textFieldDidChange(textField:)) , for: UIControlEvents.editingChanged)
         
+        enterCreateYourPassword.addTarget(self, action: #selector(textFieldDidChange(textField:)) , for: UIControlEvents.editingChanged)
+        
+        repeatCreatePassword.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        
         
     }
+    
+    
+    
+    
+    
+    
     func textFieldDidChange(textField: UITextField) {
         
-        if textField.text == "" {
+        if createYourLogin.text != "" &&
+            enterCreateYourPassword.text != "" &&
+            repeatCreatePassword.text != ""{
+        
+        
             goIsActive.isEnabled = true
+        
         }
     }
-
     
  
 }
