@@ -8,17 +8,9 @@
 
 import UIKit
 
-
-
-
-
-
 var usersClass = [User]()
 
-
-
 class ViewController: UIViewController, UITextFieldDelegate {
-    
     
     
     @IBOutlet weak var enterYourLogin: UITextField!
@@ -27,33 +19,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signIn(_ sender: Any) {
         
+        if (enterYourLogin.text == "" || enterYourPassword.text == "") {
+            alertMessage(title: "Error", message: "Please fill all data", button: "OK")
+            return
+        }
+
         
         
         for i in 0..<usersClass.count {
-            if (enterYourLogin.text == usersClass[i].login) {
+            if (enterYourLogin.text == usersClass[i].login && enterYourPassword.text == usersClass[i].password ) {
                 print("Ok")
                 break
             } else {
-                print("Not Ok")
+                
+                alertMessage(title: "Error", message: "Login or password is incorrect", button: "OK")
+               print("Not Ok")
             }
-            
         }
         
         print(usersClass)
-        
-        
         
     }
 
     @IBAction func signUp(_ sender: Any) {
         
-        
-        
-        
         let storyboard = UIStoryboard(name: "LoginScreen2", bundle: nil)
         let nextViewController =   storyboard.instantiateViewController(withIdentifier: "LoginScreen2")
-        
-        
         
     }
     
@@ -63,10 +54,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         retrieve()
         
-
-        
-        
-                
         // keyboards is open
         enterYourLogin.keyboardType = UIKeyboardType.asciiCapable
         enterYourLogin.becomeFirstResponder()
@@ -83,7 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        saveUserdefault()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -92,14 +79,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func editingTextFieldEnd(_ sender: Any) {
         enterYourPassword.becomeFirstResponder()
         
-        
-        
-        
     }
     
     
     // MARK: UserDefault
-    
+    /*
     func saveUserdefault() {
         
         let newUser = User(login: "sa", password: "555")
@@ -112,22 +96,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    */
     
+    
+    
+    // MARK: UserDefault
     func retrieve () {
         
-        if usersClass.count > 0 {
+        
         let defaults = UserDefaults.standard
         let decoded = defaults.object(forKey: "usersArray") as! Data
         let decodedUserArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [User]
         usersClass = decodedUserArray
         
-        }
+        
     }
     
-    
-    
-    
-
+    func alertMessage (title: String, message: String, button: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let actionAlertController = UIAlertAction(title: button, style: .default)
+        alertController.addAction(actionAlertController)
+        present(alertController, animated: true, completion: nil)
+        
+        
+    }
 
 }
 
