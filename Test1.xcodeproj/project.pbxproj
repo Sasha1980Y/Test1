@@ -13,9 +13,9 @@
 		7F2FEDE31EDBFB2600EACB47 /* Test1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FEDE11EDBFB2600EACB47 /* Test1.xcdatamodeld */; };
 		7F2FEDE51EDBFB2600EACB47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FEDE41EDBFB2600EACB47 /* Assets.xcassets */; };
 		7F2FEDE81EDBFB2600EACB47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FEDE61EDBFB2600EACB47 /* LaunchScreen.storyboard */; };
-		7F2FEDF01EDC194C00EACB47 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FEDEF1EDC194C00EACB47 /* LoginScreen.storyboard */; };
-		7F2FEDF21EDC1E4E00EACB47 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FEDF11EDC1E4E00EACB47 /* LoginScreen.swift */; };
 		7F2FEDF41EDC524E00EACB47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FEDF31EDC524E00EACB47 /* User.swift */; };
+		7F2FEDF61EDC6C5200EACB47 /* LoginScreen2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FEDF51EDC6C5200EACB47 /* LoginScreen2.storyboard */; };
+		7F2FEDF81EDC6CA800EACB47 /* LoginScreen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FEDF71EDC6CA800EACB47 /* LoginScreen2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		7F2FEDE41EDBFB2600EACB47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F2FEDE71EDBFB2600EACB47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F2FEDE91EDBFB2600EACB47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F2FEDEF1EDC194C00EACB47 /* LoginScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
-		7F2FEDF11EDC1E4E00EACB47 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		7F2FEDF31EDC524E00EACB47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7F2FEDF51EDC6C5200EACB47 /* LoginScreen2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginScreen2.storyboard; sourceTree = "<group>"; };
+		7F2FEDF71EDC6CA800EACB47 /* LoginScreen2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				7F2FEDDA1EDBFB2600EACB47 /* AppDelegate.swift */,
+				7F2FEDF71EDC6CA800EACB47 /* LoginScreen2.swift */,
 				7F2FEDDC1EDBFB2600EACB47 /* ViewController.swift */,
 				7F2FEDF31EDC524E00EACB47 /* User.swift */,
-				7F2FEDF11EDC1E4E00EACB47 /* LoginScreen.swift */,
-				7F2FEDEF1EDC194C00EACB47 /* LoginScreen.storyboard */,
+				7F2FEDF51EDC6C5200EACB47 /* LoginScreen2.storyboard */,
 				7F2FEDDE1EDBFB2600EACB47 /* Main.storyboard */,
 				7F2FEDE41EDBFB2600EACB47 /* Assets.xcassets */,
 				7F2FEDE61EDBFB2600EACB47 /* LaunchScreen.storyboard */,
@@ -137,7 +137,7 @@
 			files = (
 				7F2FEDE81EDBFB2600EACB47 /* LaunchScreen.storyboard in Resources */,
 				7F2FEDE51EDBFB2600EACB47 /* Assets.xcassets in Resources */,
-				7F2FEDF01EDC194C00EACB47 /* LoginScreen.storyboard in Resources */,
+				7F2FEDF61EDC6C5200EACB47 /* LoginScreen2.storyboard in Resources */,
 				7F2FEDE01EDBFB2600EACB47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F2FEDF81EDC6CA800EACB47 /* LoginScreen2.swift in Sources */,
 				7F2FEDDD1EDBFB2600EACB47 /* ViewController.swift in Sources */,
-				7F2FEDF21EDC1E4E00EACB47 /* LoginScreen.swift in Sources */,
 				7F2FEDDB1EDBFB2600EACB47 /* AppDelegate.swift in Sources */,
 				7F2FEDF41EDC524E00EACB47 /* User.swift in Sources */,
 				7F2FEDE31EDBFB2600EACB47 /* Test1.xcdatamodeld in Sources */,
@@ -317,6 +317,7 @@
 				7F2FEDEE1EDBFB2600EACB47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
