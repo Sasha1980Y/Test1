@@ -130,6 +130,7 @@
                     <connections>
                         <outlet property="createYourLogin" destination="7N2-Vu-JtF" id="nKS-5S-f0C"/>
                         <outlet property="enterCreateYourPassword" destination="but-W7-5kq" id="c37-C6-3o1"/>
+                        <outlet property="goIsActive" destination="wES-g2-OyN" id="eoR-gt-nku"/>
                         <outlet property="repeatCreatePassword" destination="Drm-yY-o5J" id="5ud-f6-Stj"/>
                     </connections>
                 </viewController>
@@ -143,7 +144,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" referencedIdentifier="Main" id="YFd-7U-UIp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8s-MN-h9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2022" y="-281"/>
+            <point key="canvasLocation" x="2270" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

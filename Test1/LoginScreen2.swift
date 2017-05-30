@@ -17,12 +17,23 @@ class LoginScreen2: UIViewController {
     
     @IBOutlet weak var repeatCreatePassword: UITextField!
     
+    @IBOutlet weak var goIsActive: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textFieldDetective()
+        
+        
+        
         createYourLogin.text = "sa"
         enterCreateYourPassword.text = "555"
+        
+        if (createYourLogin.text == "" || enterCreateYourPassword.text == "" || repeatCreatePassword.text == "") {
+            
+            goIsActive.isEnabled = false
+            
+        }
         
         
         
@@ -36,6 +47,19 @@ class LoginScreen2: UIViewController {
     
     
     @IBAction func go2(_ sender: Any) {
+        
+        if enterCreateYourPassword.text != repeatCreatePassword.text {
+            alertMessage(title: "Error", message: "Entered passwords are different", button: "Ok")
+            return
+        }
+        
+        for i in 0..<usersClass.count {
+            if (createYourLogin.text == usersClass[i].login) {
+                alertMessage(title: "Error", message: "User with entered login already exists", button: "Ok")
+                return
+            }
+        }
+        
         
         if createYourLogin.text != nil && enterCreateYourPassword.text != nil {
             let login = createYourLogin.text
@@ -72,5 +96,29 @@ class LoginScreen2: UIViewController {
      goButton.backgroundColor = UIColor.gray
      */
 
+    func alertMessage (title: String, message: String, button: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let actionAlertController = UIAlertAction(title: button, style: .default)
+        alertController.addAction(actionAlertController)
+        present(alertController, animated: true, completion: nil)
+        
+        
+    }
+    
+    func textFieldDetective() {
+        
+        createYourLogin.addTarget(self, action: #selector(LoginScreen2.textFieldDidChange(textField:)) , for: UIControlEvents.editingChanged)
+        
+        
+    }
+    func textFieldDidChange(textField: UITextField) {
+        
+        if textField.text == "" {
+            goIsActive.isEnabled = true
+        }
+    }
+
+    
  
 }

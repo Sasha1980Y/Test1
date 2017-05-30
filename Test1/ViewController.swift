@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let storyboard = UIStoryboard(name: "LoginScreen2", bundle: nil)
         let nextViewController =   storyboard.instantiateViewController(withIdentifier: "LoginScreen2")
+        present(nextViewController, animated: true, completion: nil)
         
     }
     
