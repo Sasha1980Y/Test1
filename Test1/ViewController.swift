@@ -5,6 +5,11 @@
 //  Created by AlexanderYakovenko on 5/29/17.
 //  Copyright © 2017 AlexanderYakovenko. All rights reserved.
 //
+/*
+protocol ViewControllerDelegate {
+    <#requirements#>
+}
+*/
 
 import UIKit
 
@@ -16,6 +21,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterYourLogin: UITextField!
     
     @IBOutlet weak var enterYourPassword: UITextField!
+    
+    @IBOutlet weak var signUpButtonOutlet: UIButton!
+    
     
     @IBAction func signIn(_ sender: Any) {
         
@@ -31,9 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 print("Ok")
                 return
             } else {
-                
-                
-               print("Not Ok")
+                print("Not ok")
             }
         }
         
@@ -46,7 +52,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let storyboard = UIStoryboard(name: "LoginScreen2", bundle: nil)
         let nextViewController =   storyboard.instantiateViewController(withIdentifier: "LoginScreen2")
-        present(nextViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(nextViewController, animated: true)
+        
+        // present(nextViewController, animated: true, completion: nil)
         
     }
     
@@ -54,33 +62,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieve()
         
+        if UserDefaults.standard.object(forKey: "usersArray") != nil {
+        retrieve()
+        }
         // keyboards is open
         enterYourLogin.keyboardType = UIKeyboardType.asciiCapable
         enterYourLogin.becomeFirstResponder()
         
-        // hidden navigation Bar
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         // replace "Return" -> "Done"
-        enterYourLogin.returnKeyType = UIReturnKeyType.done
-     
+        enterYourLogin.returnKeyType = UIReturnKeyType.next
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        
-        // Dispose of any resources that can be recreated.
+    // MARK: hidden Navigation Bar
+    override func viewDidAppear(_ animated: Bool) {
+        // hidden navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
     
     // after Done  check second textField
     @IBAction func editingTextFieldEnd(_ sender: Any) {
         enterYourPassword.becomeFirstResponder()
         
+    }
+    @IBAction func editingEndEnterYourPasswordTextField(_ sender: Any) {
+        signUpButtonOutlet.becomeFirstResponder()
+        signIn(enterYourPassword)
     }
     
     
@@ -103,14 +112,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: UserDefault
-    func retrieve () {
-        
+    
+    enum errorUserDefault: Error {
+        case userDefaultIsNil
+    }
+    
+    
+    
+    
+    func retrieve ()   {
         
         let defaults = UserDefaults.standard
         let decoded = defaults.object(forKey: "usersArray") as! Data
         let decodedUserArray = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [User]
         usersClass = decodedUserArray
-        
         
     }
     

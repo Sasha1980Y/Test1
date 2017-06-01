@@ -23,30 +23,38 @@ class LoginScreen2: UIViewController {
         super.viewDidLoad()
         
         textFieldDetective()
+       
+        //createYourLogin.text = "sa"
+        //enterCreateYourPassword.text = "555"
         
         
-        
-        createYourLogin.text = "sa"
-        enterCreateYourPassword.text = "555"
-        
-        if (createYourLogin.text == "" || enterCreateYourPassword.text == "" || repeatCreatePassword.text == "") {
+        /*
+        if (createYourLogin.text == "" || enterCreateYourPassword.text == "" || repeatCreatePassword.text == "" || createYourLogin.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)! ) {
             
             goIsActive.isEnabled = false
             
         }
-        
-        
-        
+        */
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewDidAppear(_ animated: Bool) {
+        
+        goIsActive.isEnabled = false
+        goIsActive.backgroundColor = UIColor.gray
+        
+        // hidden navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        // MARK: TITLE
+        self.title = "Sign Up"
         
     }
     
     
     @IBAction func go2(_ sender: Any) {
+        
+        
+        
         
         if enterCreateYourPassword.text != repeatCreatePassword.text {
             alertMessage(title: "Error", message: "Entered passwords are different", button: "Ok")
@@ -105,7 +113,7 @@ class LoginScreen2: UIViewController {
         
         
     }
-    
+    // MARK:  wait when field is not empty
     func textFieldDetective() {
         
         createYourLogin.addTarget(self, action: #selector(LoginScreen2.textFieldDidChange(textField:)) , for: UIControlEvents.editingChanged)
@@ -116,22 +124,24 @@ class LoginScreen2: UIViewController {
         
         
     }
-    
-    
-    
-    
-    
-    
+    // MARK: all field full
     func textFieldDidChange(textField: UITextField) {
+        if (createYourLogin.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)! || (enterCreateYourPassword.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)! || (repeatCreatePassword.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)! || createYourLogin.text == "" || enterCreateYourPassword.text == "" || repeatCreatePassword.text == "" {
+            goIsActive.isEnabled = false
+            goIsActive.backgroundColor = UIColor.gray
         
+        } else {
+            goIsActive.isEnabled = true
+            goIsActive.backgroundColor = UIColor.black
+        }
+        /*
         if createYourLogin.text != "" &&
             enterCreateYourPassword.text != "" &&
             repeatCreatePassword.text != ""{
         
         
             goIsActive.isEnabled = true
-        
-        }
+        }*/
     }
     
  
