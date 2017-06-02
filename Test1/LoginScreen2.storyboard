@@ -45,6 +45,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="text:" destination="ixG-fn-alD" eventType="editingDidEndOnExit" id="ed9-HR-jbd"/>
+                                    <outlet property="delegate" destination="ixG-fn-alD" id="Gsm-Ja-3hY"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repeat  password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Drm-yY-o5J">
                                 <rect key="frame" x="26" y="200" width="323" height="30"/>

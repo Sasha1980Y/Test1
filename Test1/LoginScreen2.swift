@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginScreen2: UIViewController {
+class LoginScreen2: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var createYourLogin: UITextField!
@@ -24,18 +24,7 @@ class LoginScreen2: UIViewController {
         
         textFieldDetective()
        
-        //createYourLogin.text = "sa"
-        //enterCreateYourPassword.text = "555"
-        
-        
-        /*
-        if (createYourLogin.text == "" || enterCreateYourPassword.text == "" || repeatCreatePassword.text == "" || createYourLogin.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)! ) {
-            
-            goIsActive.isEnabled = false
-            
-        }
-        */
-        
+        self.enterCreateYourPassword.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -134,15 +123,19 @@ class LoginScreen2: UIViewController {
             goIsActive.isEnabled = true
             goIsActive.backgroundColor = UIColor.black
         }
-        /*
-        if createYourLogin.text != "" &&
-            enterCreateYourPassword.text != "" &&
-            repeatCreatePassword.text != ""{
+    }
+   
+    // hide keyboard 100%
+    @IBAction func text(_ sender: UITextField) {
         
+        let end = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        end.cancelsTouchesInView = false
+        view.addGestureRecognizer(end)
         
-            goIsActive.isEnabled = true
-        }*/
     }
     
- 
+    
+    
+    
+    
 }

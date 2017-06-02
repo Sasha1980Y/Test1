@@ -92,25 +92,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         signIn(enterYourPassword)
     }
     
-    
-    // MARK: UserDefault
-    /*
-    func saveUserdefault() {
-        
-        let newUser = User(login: "sa", password: "555")
-        usersClass.append(newUser)
-        
-        let defaults = UserDefaults.standard
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: usersClass)
-        defaults.set(encodedData, forKey: "usersArray")
-        defaults.synchronize()
-        
-        
-    }
-    */
-    
-    
-    
     // MARK: UserDefault
     
     enum errorUserDefault: Error {
